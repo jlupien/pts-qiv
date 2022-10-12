@@ -211,7 +211,7 @@ static void qiv_signal_usr2()
 static gboolean qiv_handle_timer(gpointer data)
 {
   if (*(int *)data || slide) {
-    next_image(0);
+    next_image(1); // Always forward, never back
     qiv_load_image(&main_img);
   }
   return FALSE;

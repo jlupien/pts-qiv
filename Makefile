@@ -51,9 +51,10 @@ MAGIC = -DHAVE_MAGIC
 
 CC        = gcc
 #CFLAGS    = -O -g -Wall
-CFLAGS    = -O2 -Wall -W -Wextra -Werror \
+CFLAGS    = -O2 -Wall -W -Wextra \
 	    -fcaller-saves -ffast-math -fno-strength-reduce \
 	    -fthread-jumps #-march=pentium #-DSTAT_MACROS_BROKEN
+	    # -Werror
 #CFLAGS    = -O2 -Wall -fomit-frame-pointer -finline-functions \
 #	    -fcaller-saves -ffast-math -fno-strength-reduce \
 #	    -fthread-jumps #-march=pentium #-DSTAT_MACROS_BROKEN

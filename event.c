@@ -1145,10 +1145,10 @@ void qiv_handle_event(GdkEvent *ev, gpointer data)
           case ' ':
           next_image:
             if (slide) {
-              set_image_direction(1);
-             abort_slideshow:
-              q->infotext = ("(Slideshow aborted)");
-              update_image(q, STATUSBAR);
+              next_image(1);
+             continue_slideshow:
+              exit_slideshow = FALSE; // The show must go on
+              qiv_load_image(q);
               break;
             } else if  (ev->key.state & GDK_CONTROL_MASK) {
               q->infotext = ("(Next picture directory)");
@@ -1176,8 +1176,8 @@ void qiv_handle_event(GdkEvent *ev, gpointer data)
           case GDK_BackSpace:
           previous_image:
             if (slide) {
-              set_image_direction(-1);
-              goto abort_slideshow;
+              next_image(-1);
+              goto continue_slideshow;
             } else if  (ev->key.state & GDK_CONTROL_MASK) {
               q->infotext = ("(Previous picture directory)");
               next_image_dir(-1);
