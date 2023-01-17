@@ -1148,6 +1148,7 @@ void qiv_handle_event(GdkEvent *ev, gpointer data)
               next_image(1);
              continue_slideshow:
               exit_slideshow = FALSE; // The show must go on
+              skip_next_timer_tick = 1; // Skip next slide advance so they can actually see the new image
               qiv_load_image(q);
               break;
             } else if  (ev->key.state & GDK_CONTROL_MASK) {

@@ -63,6 +63,7 @@ int magnify = 0; /* [lc] */
 int user_screen = -1; /* preferred (by user) Xinerama screen */
 int browse = 0; /* scan directory of file for browsing */
 int autorotate = 0; /* autorotate JPEGs according to EXIF tag */
+int skip_next_timer_tick = 0; /* Don't advance slideshow on next timer tick */
 
 #ifdef GTD_XINERAMA
 int number_xinerama_screens = 0;
